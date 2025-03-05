@@ -9,8 +9,8 @@
 ## Online: Buffer Overflow
 
 
-|   | A  | B  |
-|---|----|----|
-| 1 | [A1](./Online-1/Buffer-Overflow-Online-A1/) | [B1](./Online-1/Buffer-Overflow-Online-B1/) [Solution](./Online-1/Buffer-Overflow-Online-B1/1905088.py) |
-| 2 | [A2](./Online-1/Buffer-Overflow-Online-A2/) | [B2](./Online-1/Buffer-Overflow-Online-B2/) |
+| A  | B  |
+|----|----|
+| [A1](./Online-1/Buffer-Overflow-Online-A1/) | [B1](./Online-1/Buffer-Overflow-Online-B1/) [Solution](./Online-1/Buffer-Overflow-Online-B1/1905088.py) |
+| [A2](./Online-1/Buffer-Overflow-Online-A2/) | [B2](./Online-1/Buffer-Overflow-Online-B2/) |
 
